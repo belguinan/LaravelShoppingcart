@@ -457,11 +457,8 @@ class Cart
             $cartItem = CartItem::fromAttributes($id, $name, $price, $options);
             $cartItem->setQuantity($qty);
         }
-
-        $zipcode = session('zipcode');
-        $taxRate = $zipcode ? $zipcode->tax_rate : 0;
         
-        $cartItem->setTaxRate($taxRate);
+        $cartItem->setTaxRate(0);
 
         return $cartItem;
     }
